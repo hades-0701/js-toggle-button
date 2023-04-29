@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" defer></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      defer
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"
+      defer
+    ></script>
+
+    <script src="./script.js" defer></script>
+
+    <script>
+      $(document).ready(() => {
+        document.addEventListener("touchstart", touchHandler, true);
+        document.addEventListener("touchmove", touchHandler, true);
+        document.addEventListener("touchend", touchHandler, true);
+        document.addEventListener("touchcancel", touchHandler, true);
+
+        // $("#switch2").draggable({
+        //   cursor: "move",
+        //   helper: "clone",
+        //   revert: "invalid",
+        // });
+
+        // $(".y").droppable({
+        //   accept: ".cartridge",
+        //   drop: function (event, ui) {
+        //     $(ui.draggable).appendTo(this);
+        //     checkwinner();
+        //   },
+        // });
+
+        const touchHandler = (event) => {
+          var touch = event.changedTouches[0];
+
+          var simulatedEvent = document.createEvent("MouseEvent");
+          simulatedEvent.initMouseEvent(
+            {
+              touchstart: "mousedown",
+              touchmove: "mousemove",
+              touchend: "mouseup",
+            }[event.type],
+            true,
+            true,
+            window,
+            1,
+            touch.screenX,
+            touch.screenY,
+            touch.clientX,
+            touch.clientY,
+            false,
+            false,
+            false,
+            false,
+            0,
+            null
+          );
+
+          touch.target.dispatchEvent(simulatedEvent);
+          event.preventDefault();
+        };
+      });
+    </script>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div
+      class="audio-highlight audio-highlight-{{ id }}"
+      style="padding-top: 300px"
+    >
+      <div class="page-width">
+        <div class="row">
+          <div class="audio-highlight-inner">
+            <div class="audio-highlight-wrap">
+              <!-- Desktop -->
+              <div class="audio-toggle home-audio-toggle-desktop">
+                <div class="audio-toggle-parent">
+                  <div id="switch" class="audio-toggle-control">
+                    <span class="handle" draggable="true">OFF</span>
+                    <div class="audio-toggle-label">
+                      <p>
+                        Give it a go!<br />
+                        <em>(Tap the switch)</em>
+                      </p>
+                      <div class="audio-toggle-label-msg2">
+                        {% render 'icon-headphones' %}
+                        <span>sound on</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- hidden html audio from online api source that loops -->
+                <audio
+                  id="audio"
+                  src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3"
+                  controls
+                  loop
+                ></audio>
+              </div>
+
+              <!-- Mobile -->
+              <div
+                class="audio-toggle audio-toggle-alt home-audio-toggle-mobile"
+              >
+                <div class="audio-toggle-parent">
+                  <div id="switch2" class="audio-toggle-control">
+                    <span class="handle" draggable="true">OFF</span>
+                    <div class="audio-toggle-label">
+                      <p>
+                        Give it a go!<br />
+                        <em>(Tap the switch)</em>
+                      </p>
+                      <div class="audio-toggle-label-msg2">
+                        {% render 'icon-headphones' %}
+                        <span>sound on</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- hidden html audio from online api source that loops -->
+                <audio
+                  id="audio"
+                  src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3"
+                  controls
+                  loop
+                ></audio>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

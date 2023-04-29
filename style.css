@@ -1,0 +1,299 @@
+/* Audio Highlight */
+.audio-highlight {
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.audio-highlight-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.audio-highlight-wrap {
+  width: 52%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.audio-highlight__title {
+  font-style: normal;
+  letter-spacing: 1px;
+  line-height: 97%;
+  background: linear-gradient(90deg, #8a35ed 0%, #e5553e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.audio-highlight__description p {
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--grey);
+  font-family: var(--font-body-family);
+}
+
+.audio-highlight-inner {
+  display: flex;
+  align-items: center;
+}
+
+.audio-highlight__bg_image {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 46%;
+  z-index: 0;
+  height: 100%;
+}
+
+.audio-highlight__bg_image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.audio-highlight-info {
+  width: 69%;
+}
+
+.audio-toggle {
+  width: 32%;
+}
+
+.audio-toggle audio {
+  display: none;
+}
+
+.audio-toggle-parent {
+  width: 140px;
+  height: 303px;
+}
+
+.audio-toggle-control {
+  border: 1px solid #4f4e4f;
+  width: 100%;
+  max-width: 140px;
+  height: 100%;
+  max-height: 300px;
+  border-radius: 80px;
+  position: relative;
+  background-color: var(--white);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.audio-toggle-control .handle {
+  width: calc(100% - 10px);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--dark);
+  z-index: 1;
+  cursor: pointer;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 300;
+  transition: 0.2s ease background-color;
+}
+
+.audio-toggle-control .handle:hover {
+  background-color: var(--grey);
+}
+
+.audio-toggle-control .handle.active {
+  background-color: var(--color-primary);
+}
+
+.audio-toggle-control .handle.active:hover {
+  background-color: var(--dark);
+}
+
+.audio-toggle-control .handle.active:active,
+.audio-toggle-control .handle.active:focus {
+  background-color: var(--color-primary);
+}
+
+.audio-toggle-label {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--black);
+  width: 100%;
+  padding: 0 10px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.audio-toggle-label p {
+  margin-bottom: 10px;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.audio-toggle-label-msg2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 300;
+}
+
+.home-audio-toggle-mobile {
+  display: none;
+}
+
+.home-audio-toggle-desktop {
+  display: block;
+}
+
+@media screen and (max-width: 1220px) {
+  .audio-highlight__bg_image img {
+    object-fit: contain;
+  }
+}
+
+/* Audio Highlight Media Queries */
+@media (max-width: 1024px) {
+  .home-audio-toggle-desktop {
+    display: none;
+  }
+
+  .home-audio-toggle-mobile {
+    display: block;
+    margin-top: 10px !important;
+  }
+
+  .audio-highlight {
+    padding-top: 40px !important;
+    display: flex;
+  }
+
+  .audio-highlight .page-width {
+    width: 50%;
+  }
+
+  .audio-highlight-info {
+    width: 100%;
+  }
+
+  .audio-highlight-wrap {
+    width: 100%;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .audio-highlight__bg_image {
+    position: relative;
+  }
+
+  .audio-toggle-parent {
+    width: 345px;
+    height: 88px;
+  }
+
+  .audio-toggle-control .handle {
+    width: 80px;
+    font-size: 30px;
+    font-weight: 300;
+  }
+
+  .audio-toggle {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .audio-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: none;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    height: 88px;
+  }
+
+  .audio-toggle-control {
+    max-width: 100%;
+    padding: 4px;
+    justify-content: flex-start;
+  }
+
+  .audio-toggle-label p {
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .audio-toggle-label-msg2 {
+    font-size: 15px;
+  }
+
+  .audio-toggle-label {
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+
+  .audio-toggle-control .handle.active:hover {
+    background-color: var(--color-primary);
+  }
+
+  .audio-highlight__bg_image img {
+    height: auto;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: -10%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .audio-highlight {
+    flex-direction: column;
+  }
+
+  .audio-highlight-inner {
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  .audio-highlight__bg_image {
+    position: relative;
+    width: 100%;
+  }
+
+  .audio-highlight-wrap {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .audio-highlight-info {
+    width: 100%;
+  }
+
+  .audio-highlight-info .audio-highlight__title,
+  .audio-highlight-info .audio-highlight__description {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .audio-highlight__bg_image img {
+    max-height: 545px;
+  }
+
+  .audio-highlight .page-width {
+    width: 100%;
+  }
+}
